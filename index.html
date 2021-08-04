@@ -3,187 +3,68 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name='viewport' content='width=device-width initial-scale=1.0'>
-		<link rel="stylesheet" type="text/css" href="styleSheet.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<title> Whiteboard Lessons Online </title>
-		<style>
-
-			body {
-				margin: 0px;
-				padding: 0px;
-			}
-
-			.header {
-				display: flex;
-				justify-content: center;
-			}
-
-			.thumbnail-pics{
-				height:150px;
-			}
-
-			.whiteboard-h1 {
-				text-align: center;
-				font-size:2em;
-				font-family: cursive;
-				border-bottom: 2px black solid;
-				background-color: rgba(0, 0, 255, 0.8);
-				color:white;
-			}
-
-			.whiteboard-container {
-				display:flex;
-				justify-content:space-around;
-				width:800px;
-			}
-
-			#canvas-holder {
-				position:relative;
-				width:600px;
-				height:400px;
-				border: 2px solid black;
-				
-			}
-
-			.button-div {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				width:75px;
-			}
-
-			.recent {
-				text-align: center;
-				line-height:2em;
-				font-size:2em;
-				font-family: cursive;
-				border-bottom: 2px black solid;
-				background-color: rgba(255, 0, 0, 0.8);
-				color: white;
-			}
-
-			.recent-container {
-				width:75vw;
-				height:200px;
-				margin: 0 auto 20px;
-				border-bottom: 2px black solid;
-			}
-			/* I don't even need this. I just need to make a flexbox. Then I can alternate the order of the image and text boxes in the html. 1st is image--> text, second is text --> image
-			.pic-left {
-				margin-top:25px;
-				
-			}
-
-			.blog-right {
-				width:70%;
-				float:right;
-				font-family:arial;
-				font-size:1.25em;
-				line-height:1.75em;
-				
-			}
-			.pic-right {
-				
-			}
-
-			.blog-left {
-				
-			}
-			*/
-
-
-		</style> 
 	</head>
 	<body>
-		<div class="header"> 
+		<header class="header"> 
 			<img
 				class="logo"
 				src="pics/logo-img.png"
 				alt="Whiteboard online logo"
 			>
-		</div>
+		</header>
 
 		<!-- THIS IS THE NAVBAR SECTION. NO CONTAINER DIV !-->
-		<a href="index.html"><div class="navlink current-page">HOME</div></a>
+		<!-- <a href="index.html"><div class="navlink current-page">HOME</div></a>
 		<a href="#"><div class="navlink">LESSONS</div></a>
 		<a href="draw.html"><div class="navlink">DRAW</div></a>
 		<a href="about.html"><div class="navlink">ABOUT</div></a>
-		<a href="contact.html"><div class="navlink">CONTACT</div></a>
+		<a href="contact.html"><div class="navlink">CONTACT</div></a> -->
 		
-		<h1 class='whiteboard-h1'> Whiteboard</h1>
+		<h1> Whiteboard</h1>
 		
 		
 		<div class='whiteboard-container'>
-			<div id = 'color-bar' class = 'button-div'>
-				<button  data-color='red' class="button"> Red </button>
-				<button  data-color='blue' class="button"> Blue </button>
-				<button  data-color='green' class="button"> Green </button>
-				<button  data-color='black' class="button"> Black </button>
-				<button  data-color='white' class="button"> White </button>
-				<button  data-color='purple' class="button"> Purple </button>
-				<button  data-color='orange' class="button"> Orange </button>
+			<div id='color-bar' class='selectors button-div'>
+				<button data-color='red' class="button"> Red </button>
+				<button data-color='blue' class="button"> Blue </button>
+				<button data-color='green' class="button"> Green </button>
+				<button data-color='black' class="button"> Black </button>
+				<button data-color='white' class="button"> White </button>
+				<button data-color='purple' class="button"> Purple </button>
+				<button data-color='orange' class="button"> Orange </button>
 			</div>
 
-			<div id = 'size-bar' class = 'button-div'>
-				<button  data-size='5' class="button"> 5 </button>
-				<button  data-size='10' class="button"> 10 </button>
-				<button  data-size='15' class="button"> 15 </button>
-				<button  data-size='20' class="button"> 20 </button>
-				<button  data-size='25' class="button"> 25 </button>
-				<button  data-size='30' class="button"> 30 </button>
-				<button  data-size='35' class="button"> 35 </button>
+			<div id='size-bar' class='selectors button-div'>
+				<button data-size='5' class="button"> 5 </button>
+				<button data-size='10' class="button"> 10 </button>
+				<button data-size='15' class="button"> 15 </button>
+				<button data-size='20' class="button"> 20 </button>
+				<button data-size='25' class="button"> 25 </button>
+				<button data-size='30' class="button"> 30 </button>
+				<button data-size='35' class="button"> 35 </button>
 			</div>
 			
-			<div id='canvas-holder'></div>
+			
+			<canvas id="canvas"></canvas>
 		</div>
 
-		<!-- this is the recent lessons section !-->
-		<!--<h1 class='recent'> Recent Lessons</h1>
-		<div class='recent-container'>
-			<img 
-				src="pics/fire-img.jpg" 
-				alt="a picture of a fire truck"
-				class='pic-left thumbnail-pics'
-			>
-			<p class='blog-right'> Today's lesson is all about fire trucks. Come read about how interesting fire trucks are. You're going to learn all the different parts of the fire truck and why the truck needs to have all those parts. </p>
-		</div>-->
-		<!--
-		<div class='recent-container'>
-			<img 
-				src="pics/police-img.jpg" 
-				alt="a picture of a fire truck"
-				class='pic-right'
-			>
-			<p class='blog-left'> Today's lesson is all about police cars. Come read about how interesting police cars are. You're going to learn all the different parts of the police car and why the car needs to have all those parts. </p>
-		</div>
-
-		<div class='recent-container'>
-			<img 
-				src="pics/ambulance-img.jpg" 
-				alt="a picture of a fire truck"
-				class='pic-left'
-			>
-			<p class='blog-right'> Today's lesson is all about ambulances. Come read about how interesting ambulances are. You're going to learn all the different parts of the ambulance and why the ambulance needs to have all those parts. </p>
-		</div>
-		!-->
-		
-		<div class="footer">
+		<footer class="footer">
 			Whiteboard Lessons Online<br>
 			Copyright The Website Store 2021<br>
 			Portfolio <a href='https://markoco14.github.io/'>https://markoco14.github.io/</a>
-		</div>
+		</footer>
 
 
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script> -->
 		<script>
-			/*function displayButton(col, x, y) {
-				fill(col);
-				ellipseMode(CENTER);
-				ellipse(x, y, 40, 40);
-				if (dist(x, y, mouseX, mouseY) < 40/2 && mouseIsPressed) {
-					selectedColor = col;
-				}
-			}*/
+			let canvas = document.getElementById('canvas');
+			let ctx = canvas.getContext('2d');
+			canvas.addEventListener("click", changeBackgroudColor);
+			
+			
 			// set up our canvas on the page
 			// define our variables
 			let colors = ['red', 'green', 'blue', 'black', 'white'];
@@ -194,18 +75,59 @@
 
 
 			let chooseColor = function(e) {
+				console.log(e.target.getAttribute('data-color'))
 				selectedColor = e.target.getAttribute('data-color')
 			}
 
 			let chooseSize = function(e) {
+				console.log(e.target.getAttribute('data-size'))
 				size = Number(e.target.getAttribute('data-size'))
 			}
 
-			function setup() {
-				let canvas = createCanvas(800, 400);
+			let spot = 10;
+			let curX;
+			let curY;
+			let pressed = false;
+
+			document.onmousemove = function(e) {
+				curX = (window.Event) ? e.pageX : e.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)
+				curY = (window.Event) ? e.pageY : e.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)
+				
+			}
+
+			document.onmouseup = function() {
+				pressed = false;
+			}
+
+			document.onmousedown = function() {
+				pressed = true;
+			}
+
+			function degToRad(degrees) {
+			  return degrees * Math.PI / 180;
+			};
+
+			function changeBackgroudColor(e) {
+					console.log(curX);
+					console.log(curY);
+
+
+					
+					ctx.fillStyle = selectedColor;
+					ctx.beginPath();
+					ctx.arc(spot,spot,size,degToRad(0),degToRad(360), false);
+					ctx.fill()
+					// ctx.fillStyle = selectedColor;
+					// ctx.fillRect(e.x, spot, size*2, size);
+					// spot += 10
+				
+			}
+
+			/*function setup() {
+				let canvas = createCanvas(400, 400);
 				canvas.parent('canvas-holder');
 				background(255, 255, 255);
-			}
+			}*/
 			// define our draw function
 			function draw() {
 				// make grey side bar

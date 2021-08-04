@@ -1,5 +1,10 @@
 # whiteboard-web
-Plan your next lesson on a digital whiteboard. Save it. Share it. Teach it.
+
+Plan your next lesson on a digital whiteboard. 
+
+- Save it. 
+- Share it. 
+- Teach it.
 
 A space for you to plan the whiteboards for your next lesson
 
